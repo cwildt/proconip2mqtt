@@ -1,0 +1,7 @@
+.gitpod.yml
+.theia/*
+node_modules/*
+package-lock.json
+persist/*
+setup.sh
+build.sh

@@ -1,0 +1,159 @@
+{
+    "proconip":
+    {
+        "controllerUrl": "http://192.168.xxx.xxx",
+        "basicAuth": true,
+        "username": "admin",
+        "password": "admin",
+        "timeout": 5000,
+        "updateInterval": 60000,
+        "errorTolerance": 2
+    },
+    "mqtt":
+    {
+        "host": "mqtt://192.168.xxxx.xxx",
+        "port": "1883",
+        "keepalive": 60,
+        "topic": "proconip2mqtt",
+        "qos": 1,
+        "reconnectPeriod": 0,
+        "retain": true,
+        "clean": true,
+
+        "username": "<mqtt username>",
+        "password": "<mqtt password>"
+    },    
+    "entities":
+    {
+        "pressure_filter":
+        {
+            "id": 3,
+            "name": "pressure_filter",
+            "type": "pressure",
+            "publish": true
+        },
+        "chlor_value":
+        {
+            "id": 4,
+            "name": "chlor_value",
+            "type": "",
+            "publish": true
+        },
+        "redox_value":
+        {
+            "id": 6,
+            "name": "redox_value",
+            "type": "",
+            "publish": true
+        },
+        "ph_value":
+        {
+            "id": 7,
+            "name": "ph_value",
+            "type": "",
+            "publish": true
+        },
+        "temperature_pool_out":
+        {
+            "id": 8,
+            "name": "temperature_pool_out",
+            "type": "temperature",
+            "publish": true
+        },
+        "temperature_pool_in":
+        {
+            "id": 9,
+            "name": "temperature_pool_in",
+            "type": "temperature",
+            "publish": true
+        },
+        "temperature_heater":
+        {
+            "id": 10,
+            "name": "temperature_heater",
+            "type": "temperature",
+            "publish": true
+        },
+        "temperature_garage":
+        {
+            "id": 11,
+            "name": "temperature_garage",
+            "type": "temperature",
+            "publish": true
+        },
+        "pump":
+        {
+            "id": 16,
+            "name": "pump",
+            "type": "switch",
+            "publish": true,
+            "subscribe": true
+        },
+        "heating_cycle":
+        {
+            "id": 17,
+            "name": "heating_cycle",
+            "type": "switch",
+            "publish": true
+        },
+        "chlor_pump":
+        {
+            "id": 20,
+            "name": "chlor_pump",
+            "type": "switch",
+            "publish": true,
+            "subscribe": true
+        },
+        "phminus_pump":
+        {
+            "id": 21,
+            "name": "phminus_pump",
+            "type": "switch",
+            "publish": true,
+            "subscribe": true
+        },
+        "flow":
+        {
+            "id": 24,
+            "name": "flow",
+            "type": "",
+            "publish": true
+        },
+        "switch_pump":
+        {
+            "id": 25,
+            "name": "switch_pump",
+            "type": "",
+            "publish": true
+        },
+        "cl_remaining":
+        {
+            "id": 36,
+            "name": "cl_remaining",
+            "type": "",
+            "publish": true
+        },
+        "phminus_remaining":
+        {
+            "id": 37,
+            "name": "phminus_remaining",
+            "type": "",
+            "publish": true
+        },
+        "cl_consumption":
+        {
+            "id": 39,
+            "name": "cl_consumption",
+            "type": "",
+            "publish": true
+        },
+        "phminus_consumption":
+        {
+            "id": 40,
+            "name": "phminus_consumption",
+            "type": "",
+            "publish": true
+        }
+    }  
+    
+}
