@@ -30,7 +30,7 @@ var payload = 'online';
 ( async () => {
 
     console.log(`Publish ${bridgetopic}, ${payload}`)
-    await client.publish(bridgetopic, payload)
+    client.publish(bridgetopic, payload, { qos: 0, retain: true })
     
     for (entity in config['entities']) {
         if (config['entities'][entity]['subscribe'] == true) {
@@ -150,8 +150,8 @@ async function shutdown() {
     console.log('SIGINT sent')
     var payload = 'offline';
     console.log(`Publish ${bridgetopic}, ${payload}`)
-    await client.publish(bridgetopic, payload, {retain: true, qos: 0})
-    await client.end(exit)
+    client.publish(bridgetopic, payload, { retain: true, qos: 0 })
+    client.end(exit)
   };
 
 async function exit(){

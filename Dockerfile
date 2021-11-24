@@ -1,5 +1,5 @@
 FROM node:latest
-LABEL com.centurylinklabs.watchtower.enable="false"
+#LABEL com.centurylinklabs.watchtower.enable="false"
 WORKDIR /proconip2mqtt/
 ADD index.js /proconip2mqtt/
 COPY /config /proconip2mqtt/config
