@@ -31,16 +31,13 @@ async function startup(){
     client.publish(bridgetopic, payload, { retain: true, qos: 0 })
 };
 
-async function subscribe(){
-    for (entity in config['entities']) {
-        if (config['entities'][entity]['subscribe'] == true) {
-            subscribe(config['entities'][entity], client, config)
-        }
-    }
-};
-
 startup( );
-subscribe( );
+
+for (entity in config['entities']) {
+    if (config['entities'][entity]['subscribe'] == true) {
+        subscribe(config['entities'][entity], client, config)
+    }
+}
 
 dataSource.start((data) => {    
 
