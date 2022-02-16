@@ -22,16 +22,19 @@ var options={
 
 var topic = config['mqtt'].topic.toString()
 
-console.log('MQTT Connecting...')
-var client  = mqtt.connect(url, options)
-var bridgetopic = `${topic}/bridge/state`
-var payload = 'online';
+async function startup(){
+    console.log('MQTT Connecting...')
+    var client  = mqtt.connect(url, options)
+    var bridgetopic = `${topic}/bridge/state`
+    var payload = 'online';
+    console.log(`Publish ${bridgetopic}, ${payload}`)
+    client.publish(bridgetopic, payload, { retain: true, qos: 0 })
+};
+
+await startup( );
 
 ( async () => {
-
-    console.log(`Publish ${bridgetopic}, ${payload}`)
-    client.publish(bridgetopic, payload, { qos: 0, retain: true })
-    
+   
     for (entity in config['entities']) {
         if (config['entities'][entity]['subscribe'] == true) {
            await subscribe(config['entities'][entity], client, config)
