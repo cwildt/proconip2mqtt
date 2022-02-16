@@ -30,8 +30,9 @@ async function startup(){
     console.log(`Publish ${bridgetopic}, ${payload}`)
     client.publish(bridgetopic, payload, { retain: true, qos: 0 })
 };
-
-await startup( );
+( async () => {
+    await startup( );
+})()
 
 ( async () => {
    
