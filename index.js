@@ -21,12 +21,12 @@ var options={
 };
 
 var topic = config['mqtt'].topic.toString()
+var client  = mqtt.connect(url, options)
+var bridgetopic = `${topic}/bridge/state`
+var payload = 'online';
 
 async function startup(){
     console.log('MQTT Connecting...')
-    var client  = mqtt.connect(url, options)
-    var bridgetopic = `${topic}/bridge/state`
-    var payload = 'online';
     console.log(`Publish ${bridgetopic}, ${payload}`)
     client.publish(bridgetopic, payload, { retain: true, qos: 0 })
 };
