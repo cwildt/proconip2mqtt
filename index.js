@@ -30,19 +30,17 @@ async function startup(){
     console.log(`Publish ${bridgetopic}, ${payload}`)
     client.publish(bridgetopic, payload, { retain: true, qos: 0 })
 };
-( async () => {
-    await startup( );
-})()
 
-( async () => {
-   
+async function subscribe(){
     for (entity in config['entities']) {
         if (config['entities'][entity]['subscribe'] == true) {
-           await subscribe(config['entities'][entity], client, config)
+            subscribe(config['entities'][entity], client, config)
         }
     }
+};
 
-})()
+startup( );
+subscribe( );
 
 dataSource.start((data) => {    
 
@@ -98,7 +96,6 @@ async function updateData(dsource){
     }
     return data
 }
-
 
 async function subscribe(entity, client, config) {
     var label = entity.name    
